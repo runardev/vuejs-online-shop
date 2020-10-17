@@ -1,12 +1,31 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Catalog</router-link> |
+      <router-link :to="{ name: 'cart', params: { cart_data: CART } }"
+        >Cart</router-link
+      >
+      |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  name: "App",
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters(["CART"])
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

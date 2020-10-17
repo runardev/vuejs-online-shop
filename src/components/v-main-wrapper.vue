@@ -1,16 +1,15 @@
 <template>
   <div class="v-main-wrapper">
-    <v-catalog />
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import vCatalog from "./v-catalog";
 export default {
   name: "v-main-wrapper",
-  components: {
-    vCatalog
-  }
+  computed: {}
 };
 </script>
 
