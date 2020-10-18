@@ -63,6 +63,7 @@ export default new Vuex.Store({
     },
     DECREMENT_CART_ITEM({ commit }, index) {
       commit("DECREMENT", index);
+      commit("REMOVE_FROM_CART", index);
     },
     DELETE_FROM_CART({ commit }, index) {
       commit("REMOVE_FROM_CART", index);
