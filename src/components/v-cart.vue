@@ -15,7 +15,7 @@
     />
     <div class="v-cart__total">
       <p class="total__name">Total:</p>
-      <p>{{ cartTotalCost }} ₽</p>
+      <p>{{ cartTotal }} ₽</p>
     </div>
   </div>
 </template>
@@ -38,20 +38,11 @@ export default {
     return {};
   },
   computed: {
-    cartTotalCost() {
-      let result = [];
-
-      if (this.cart_data.length) {
-        for (let item of this.cart_data) {
-          result.push(item.price * item.quantity);
-        }
-        result = result.reduce(function(sum, el) {
-          return sum + el;
-        });
-        return result;
-      } else {
-        return 0;
-      }
+    cartTotal() {
+      return this.cart_data.reduce(
+        (res, item) => res + item.price * item.quantity,
+        0
+      );
     }
   },
   methods: {
