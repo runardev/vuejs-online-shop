@@ -8,6 +8,7 @@
   border-radius: $radius;
   outline: none;
   cursor: pointer;
+  transition: background .2s ease-in-out;
   &:hover {
     background: $green-bg-hover;
   }
