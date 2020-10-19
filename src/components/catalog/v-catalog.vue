@@ -4,6 +4,12 @@
       <div class="v-catalog__link_to_cart">Cart: {{ CART.length }}</div>
     </router-link>
     <h1>Catalog</h1>
+    <v-select
+      :options="categories"
+      @select="optionSelect"
+      :selected="selected"
+    />
+    <p>Selected option goes here: {{ selected }}</p>
     <div class="v-catalog__list">
       <v-catalog-item
         v-for="product in PRODUCTS"
@@ -17,16 +23,25 @@
 
 <script>
 import vCatalogItem from "@/components/catalog/v-catalog-item";
+import vSelect from "@/components/v-select";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "v-catalog",
   components: {
-    vCatalogItem
+    vCatalogItem,
+    vSelect
   },
   props: {},
   data() {
-    return {};
+    return {
+      categories: [
+        { name: "Все", value: "all" },
+        { name: "Мужские", value: "m" },
+        { name: "Женские", value: "f" }
+      ],
+      selected: "Все"
+    };
   },
   computed: {
     ...mapGetters(["PRODUCTS", "CART"])
@@ -35,6 +50,9 @@ export default {
     ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
     addToCart(data) {
       this.ADD_TO_CART(data);
+    },
+    optionSelect(option) {
+      this.selected = option.name;
     }
   },
   mounted() {

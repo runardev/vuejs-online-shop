@@ -10,7 +10,7 @@ const actions = { ...commonActions, ...apiRequests };
 
 Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== "production";
+// const debug = process.env.NODE_ENV !== "production";
 
 export default new Vuex.Store({
   state: {
@@ -20,6 +20,6 @@ export default new Vuex.Store({
   mutations,
   actions,
   getters,
-  modules: {},
-  strict: debug
+  modules: {}
+  // strict: debug
 });
