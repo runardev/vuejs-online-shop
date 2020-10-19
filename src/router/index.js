@@ -7,12 +7,12 @@ const routes = [
   {
     path: "/",
     name: "catalog",
-    component: () => import("@/components/v-catalog")
+    component: () => import("@/components/catalog/v-catalog")
   },
   {
     path: "/cart",
     name: "cart",
-    component: () => import("@/components/v-cart"),
+    component: () => import("@/components/cart/v-cart"),
     props: true
   },
   {
