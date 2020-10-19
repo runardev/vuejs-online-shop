@@ -56,8 +56,7 @@ export default {
     }
   },
   mounted() {
-    // eslint-disable-next-line no-unused-vars
-    this.GET_PRODUCTS_FROM_API().then(response => {
+    this.GET_PRODUCTS_FROM_API().then(() => {
       console.log("Data arrived!");
     });
   }
